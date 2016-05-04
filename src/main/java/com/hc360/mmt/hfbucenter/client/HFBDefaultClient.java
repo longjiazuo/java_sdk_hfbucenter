@@ -75,8 +75,13 @@ public class HFBDefaultClient implements AbstarctClient {
 		// 校验参数
 		checkParam(request);
 		BindBankCardResponse response = new BindBankCardResponse();
-		JSONObject content = getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.BIND_BANKCARD);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		JSONObject content = obj
+				.getJSONObject(ClientConstants.ApiParam.CONTENT);
 		if (content != null) {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
@@ -85,6 +90,9 @@ public class HFBDefaultClient implements AbstarctClient {
 			response = FastJSONUtil.parseObject(decryContent,
 					BindBankCardResponse.class);
 		}
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -105,8 +113,15 @@ public class HFBDefaultClient implements AbstarctClient {
 		// 校验参数
 		checkParam(request);
 		QueryHfbBalanceResponse response = new QueryHfbBalanceResponse();
-		JSONObject content = getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.QUERY_HFBBALANCE);
+
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		JSONObject content = obj
+				.getJSONObject(ClientConstants.ApiParam.CONTENT);
+
 		if (content != null) {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
@@ -115,6 +130,9 @@ public class HFBDefaultClient implements AbstarctClient {
 			response = FastJSONUtil.parseObject(decryContent,
 					QueryHfbBalanceResponse.class);
 		}
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -135,8 +153,13 @@ public class HFBDefaultClient implements AbstarctClient {
 		// 校验参数
 		checkParam(request);
 		SendSMSResponse response = new SendSMSResponse();
-		JSONObject content = getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.SEND_SMS);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		JSONObject content = obj
+				.getJSONObject(ClientConstants.ApiParam.CONTENT);
 		if (content != null) {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
@@ -145,6 +168,9 @@ public class HFBDefaultClient implements AbstarctClient {
 			response = FastJSONUtil.parseObject(decryContent,
 					SendSMSResponse.class);
 		}
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -165,8 +191,14 @@ public class HFBDefaultClient implements AbstarctClient {
 		// 校验参数
 		checkParam(request);
 		WithdrawCashResponse response = new WithdrawCashResponse();
-		getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.WITHDRAW_CASH);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -188,8 +220,13 @@ public class HFBDefaultClient implements AbstarctClient {
 		// 校验参数
 		checkParam(request);
 		GetBachWithdrawCashResultResponse response = new GetBachWithdrawCashResultResponse();
-		JSONObject content = getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.GET_BACHWITHDRAWCASHRESULT);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		JSONObject content = obj
+				.getJSONObject(ClientConstants.ApiParam.CONTENT);
 		if (content != null) {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
@@ -198,6 +235,9 @@ public class HFBDefaultClient implements AbstarctClient {
 			response = FastJSONUtil.parseObject(decryContent,
 					GetBachWithdrawCashResultResponse.class);
 		}
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -219,8 +259,13 @@ public class HFBDefaultClient implements AbstarctClient {
 		checkParam(request);
 		GetInComeFlowResponse response = new GetInComeFlowResponse();
 		List<IncomeFlow> responseList = new ArrayList<IncomeFlow>();
-		JSONObject content = getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.GETINCOMEFLOW);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		JSONObject content = obj
+				.getJSONObject(ClientConstants.ApiParam.CONTENT);
 		if (content != null) {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
@@ -230,6 +275,9 @@ public class HFBDefaultClient implements AbstarctClient {
 					IncomeFlow.class);
 			response.setInComeFlowList(responseList);
 		}
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -251,8 +299,13 @@ public class HFBDefaultClient implements AbstarctClient {
 		checkParam(request);
 		GetOutComeFlowResponse response = new GetOutComeFlowResponse();
 		List<OutcomeFlow> responseList = new ArrayList<OutcomeFlow>();
-		JSONObject content = getResponse(request, response,
+		JSONObject obj = getResponse(request, response,
 				ClientConstants.InterfaceParam.GETOUTCOMEFLOW);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		JSONObject content = obj
+				.getJSONObject(ClientConstants.ApiParam.CONTENT);
 		if (content != null) {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
@@ -262,6 +315,9 @@ public class HFBDefaultClient implements AbstarctClient {
 					OutcomeFlow.class);
 			response.setOutComeFlowList(responseList);
 		}
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
 		return response;
 	}
 
@@ -336,15 +392,7 @@ public class HFBDefaultClient implements AbstarctClient {
 					+ " http-content:" + result.content);
 		}
 		JSONObject obj = JSONObject.parseObject(result.content);
-		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
-		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
-		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
-		JSONObject content = obj
-				.getJSONObject(ClientConstants.ApiParam.CONTENT);
-		response.setStatus(status);
-		response.setCode(code);
-		response.setMessage(message);
-		return content;
+		return obj;
 	}
 
 	/* 公用方法 */
