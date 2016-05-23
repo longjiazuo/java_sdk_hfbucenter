@@ -231,9 +231,13 @@ public class HFBDefaultClient implements AbstarctClient {
 			String returnResult = content
 					.getString(ClientConstants.ApiParam.RESULT);
 			String decryContent = this.decryptResult(returnResult);
-			// 把json串转换成为javabean
-			response = FastJSONUtil.parseObject(decryContent,
-					GetBachWithdrawCashResultResponse.class);
+			if (decryContent != null && !"null".equals(decryContent)) {
+				// 把json串转换成为javabean
+				response = FastJSONUtil.parseObject(decryContent,
+						GetBachWithdrawCashResultResponse.class);
+			} else {
+				response.setCashBachId(request.getCashBachId());
+			}
 		}
 		response.setStatus(status);
 		response.setCode(code);
