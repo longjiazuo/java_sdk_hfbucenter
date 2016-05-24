@@ -30,6 +30,7 @@ public class ClientConstants {
 		public static final String GET_BACHWITHDRAWCASHRESULT = "get_bachWithdrawCashResult";
 		public static final String GETINCOMEFLOW = "getInComeFlow";
 		public static final String GETOUTCOMEFLOW = "getOutComeFlow";
+		public static final String BIND_BANKCARDANDWITHDRAW_CASH = "bindCardAndWithdrawCash";
 	}
 
 	// 配置参数常量
