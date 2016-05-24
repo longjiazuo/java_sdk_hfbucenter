@@ -20,6 +20,8 @@ import com.hc360.mmt.hfbucenter.error.ClientErrorCode;
 import com.hc360.mmt.hfbucenter.exception.ClientException;
 import com.hc360.mmt.hfbucenter.model.BasicRequest;
 import com.hc360.mmt.hfbucenter.model.BasicResponse;
+import com.hc360.mmt.hfbucenter.model.BindBankCardAndWithdrawCashRequest;
+import com.hc360.mmt.hfbucenter.model.BindBankCardAndWithdrawCashResponse;
 import com.hc360.mmt.hfbucenter.model.BindBankCardRequest;
 import com.hc360.mmt.hfbucenter.model.BindBankCardResponse;
 import com.hc360.mmt.hfbucenter.model.GetBachWithdrawCashResultRequest;
@@ -201,7 +203,7 @@ public class HFBDefaultClient implements AbstarctClient {
 		response.setMessage(message);
 		return response;
 	}
-
+	
 	/**
 	 * GetBachWithdrawCashResult API执行入口
 	 * 
@@ -325,6 +327,36 @@ public class HFBDefaultClient implements AbstarctClient {
 		return response;
 	}
 
+	/**
+	 * BindBankCardAndWithdrawCash API执行入口
+	 * 
+	 * @author longjiazuo
+	 * @param request
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+
+	public BindBankCardAndWithdrawCashResponse execute(
+			BindBankCardAndWithdrawCashRequest request) throws IOException,
+			ClassNotFoundException, InstantiationException,
+			IllegalAccessException {
+		// 校验参数
+		checkParam(request);
+		BindBankCardAndWithdrawCashResponse response = new BindBankCardAndWithdrawCashResponse();
+		JSONObject obj = getResponse(request, response,
+				ClientConstants.InterfaceParam.BIND_BANKCARDANDWITHDRAW_CASH);
+		Integer status = obj.getInteger(ClientConstants.ApiParam.STATUS);
+		Integer code = obj.getInteger(ClientConstants.ApiParam.CODE);
+		String message = obj.getString(ClientConstants.ApiParam.MESSAGE);
+		response.setStatus(status);
+		response.setCode(code);
+		response.setMessage(message);
+		return response;
+	}
+	
 	/**
 	 * 校验参数
 	 * 
