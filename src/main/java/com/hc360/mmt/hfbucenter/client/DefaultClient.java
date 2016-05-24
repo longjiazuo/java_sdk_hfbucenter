@@ -21,6 +21,8 @@ import com.hc360.mmt.hfbucenter.error.ClientErrorCode;
 import com.hc360.mmt.hfbucenter.exception.ClientException;
 import com.hc360.mmt.hfbucenter.model.BasicRequest;
 import com.hc360.mmt.hfbucenter.model.BasicResponse;
+import com.hc360.mmt.hfbucenter.model.BindBankCardAndWithdrawCashRequest;
+import com.hc360.mmt.hfbucenter.model.BindBankCardAndWithdrawCashResponse;
 import com.hc360.mmt.hfbucenter.model.BindBankCardRequest;
 import com.hc360.mmt.hfbucenter.model.BindBankCardResponse;
 import com.hc360.mmt.hfbucenter.model.GetBachWithdrawCashResultRequest;
@@ -390,6 +392,47 @@ public class DefaultClient implements AbstarctClient {
 		return response;
 	}
 
+	/**
+	 * bindCardAndWithdrawCash API执行入口
+	 * 
+	 * @author longjiazuo
+	 * @param request
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	public BindBankCardAndWithdrawCashResponse execute(BindBankCardAndWithdrawCashRequest request)
+			throws IOException, ClassNotFoundException, InstantiationException,
+			IllegalAccessException {
+		return execute(request, false);
+	}
+
+	/**
+	 * bindCardAndWithdrawCash方法重载
+	 * 
+	 * @author longjiazuo
+	 * @param request
+	 * @param https
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	private BindBankCardAndWithdrawCashResponse execute(BindBankCardAndWithdrawCashRequest request,
+			boolean https) throws IOException, ClassNotFoundException,
+			InstantiationException, IllegalAccessException {
+		// 校验参数
+		checkParam(request);
+		BindBankCardAndWithdrawCashResponse response = new BindBankCardAndWithdrawCashResponse();
+		getResponse(request, response,
+				ClientConstants.InterfaceParam.BIND_BANKCARDANDWITHDRAW_CASH, https);
+		return response;
+	}
+	
+	
 	/**
 	 * 校验参数
 	 * 
